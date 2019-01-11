@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.0.4.  */
+/* A Bison parser, made by GNU Bison 3.1.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.4"
+#define YYBISON_VERSION "3.1"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -176,13 +176,13 @@ typedef signed char yytype_int8;
 #ifdef YYTYPE_UINT16
 typedef YYTYPE_UINT16 yytype_uint16;
 #else
-typedef unsigned short int yytype_uint16;
+typedef unsigned short yytype_uint16;
 #endif
 
 #ifdef YYTYPE_INT16
 typedef YYTYPE_INT16 yytype_int16;
 #else
-typedef short int yytype_int16;
+typedef short yytype_int16;
 #endif
 
 #ifndef YYSIZE_T
@@ -194,7 +194,7 @@ typedef short int yytype_int16;
 #  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
 # else
-#  define YYSIZE_T unsigned int
+#  define YYSIZE_T unsigned
 # endif
 #endif
 
@@ -246,7 +246,7 @@ typedef short int yytype_int16;
 # define YYUSE(E) /* empty */
 #endif
 
-#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
+#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
 # define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
     _Pragma ("GCC diagnostic push") \
@@ -414,7 +414,7 @@ union yyalloc
 #define YYMAXUTOK   263
 
 #define YYTRANSLATE(YYX)                                                \
-  ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
+  ((unsigned) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
 /* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex, without out-of-bounds checking.  */
@@ -694,7 +694,7 @@ do {                                                            \
 static void
 yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule, void* scanner, Cmds** cmds, char** err_msg)
 {
-  unsigned long int yylno = yyrline[yyrule];
+  unsigned long yylno = yyrline[yyrule];
   int yynrhs = yyr2[yyrule];
   int yyi;
   YYFPRINTF (stderr, "Reducing stack by rule %d (line %lu):\n",
@@ -920,6 +920,7 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
       case N:                               \
         yyformat = S;                       \
       break
+    default: /* Avoid compiler warnings. */
       YYCASE_(0, YY_("syntax error"));
       YYCASE_(1, YY_("syntax error, unexpected %s"));
       YYCASE_(2, YY_("syntax error, unexpected %s, expecting %s"));
@@ -986,27 +987,27 @@ yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, void* scanner, Cmd
   switch (yytype)
     {
           case 8: /* "string"  */
-#line 49 "cmdparser.y" /* yacc.c:1257  */
+#line 49 "cmdparser.y" /* yacc.c:1258  */
       { free(((*yyvaluep).sval)); }
-#line 992 "cmdparser.c" /* yacc.c:1257  */
+#line 993 "cmdparser.c" /* yacc.c:1258  */
         break;
 
     case 11: /* cmds  */
-#line 51 "cmdparser.y" /* yacc.c:1257  */
+#line 51 "cmdparser.y" /* yacc.c:1258  */
       { cmd_free_cmds(((*yyvaluep).cmds)); }
-#line 998 "cmdparser.c" /* yacc.c:1257  */
+#line 999 "cmdparser.c" /* yacc.c:1258  */
         break;
 
     case 12: /* cmd  */
-#line 50 "cmdparser.y" /* yacc.c:1257  */
+#line 50 "cmdparser.y" /* yacc.c:1258  */
       { cmd_free_pipe(((*yyvaluep).cmd)); }
-#line 1004 "cmdparser.c" /* yacc.c:1257  */
+#line 1005 "cmdparser.c" /* yacc.c:1258  */
         break;
 
     case 14: /* maybeio  */
-#line 52 "cmdparser.y" /* yacc.c:1257  */
+#line 52 "cmdparser.y" /* yacc.c:1258  */
       { free(((*yyvaluep).io).in); free(((*yyvaluep).io).out); }
-#line 1010 "cmdparser.c" /* yacc.c:1257  */
+#line 1011 "cmdparser.c" /* yacc.c:1258  */
         break;
 
 
@@ -1161,7 +1162,7 @@ YYSTYPE yylval YY_INITIAL_VALUE (= yyval_default);
       yyvsp = yyvs + yysize - 1;
 
       YYDPRINTF ((stderr, "Stack size increased to %lu\n",
-                  (unsigned long int) yystacksize));
+                  (unsigned long) yystacksize));
 
       if (yyss + yystacksize - 1 <= yyssp)
         YYABORT;
@@ -1272,68 +1273,68 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 57 "cmdparser.y" /* yacc.c:1646  */
+#line 57 "cmdparser.y" /* yacc.c:1651  */
     {
 		*cmds=cmd_alloc_cmds();
 	}
-#line 1280 "cmdparser.c" /* yacc.c:1646  */
+#line 1281 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 3:
-#line 61 "cmdparser.y" /* yacc.c:1646  */
+#line 61 "cmdparser.y" /* yacc.c:1651  */
     { 
 		*cmds=(yyvsp[0].cmds);
 	}
-#line 1288 "cmdparser.c" /* yacc.c:1646  */
+#line 1289 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 4:
-#line 65 "cmdparser.y" /* yacc.c:1646  */
+#line 65 "cmdparser.y" /* yacc.c:1651  */
     { 
 		*cmds=(yyvsp[-1].cmds);
 	}
-#line 1296 "cmdparser.c" /* yacc.c:1646  */
+#line 1297 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 5:
-#line 71 "cmdparser.y" /* yacc.c:1646  */
+#line 71 "cmdparser.y" /* yacc.c:1651  */
     {
 		STAILQ_INSERT_TAIL((yyvsp[-2].cmds),(yyvsp[0].cmd),tailq);
 		(yyval.cmds)=(yyvsp[-2].cmds);
 	}
-#line 1305 "cmdparser.c" /* yacc.c:1646  */
+#line 1306 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 6:
-#line 76 "cmdparser.y" /* yacc.c:1646  */
+#line 76 "cmdparser.y" /* yacc.c:1651  */
     {
 		Cmds* cmds=cmd_alloc_cmds();
 		STAILQ_INSERT_TAIL(cmds,(yyvsp[0].cmd),tailq);
 		(yyval.cmds)=cmds;
 	}
-#line 1315 "cmdparser.c" /* yacc.c:1646  */
+#line 1316 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 7:
-#line 84 "cmdparser.y" /* yacc.c:1646  */
+#line 84 "cmdparser.y" /* yacc.c:1651  */
     {
 		PipeCmd* cmd=(yyvsp[-2].cmd);
 		STAILQ_INSERT_TAIL(&cmd->cmds,(yyvsp[0].simple),tailq);
 		(yyval.cmd)=cmd;
 	}
-#line 1325 "cmdparser.c" /* yacc.c:1646  */
+#line 1326 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 8:
-#line 90 "cmdparser.y" /* yacc.c:1646  */
+#line 90 "cmdparser.y" /* yacc.c:1651  */
     {
 		(yyval.cmd)=cmd_alloc_pipe((yyvsp[0].simple));
 	}
-#line 1333 "cmdparser.c" /* yacc.c:1646  */
+#line 1334 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 9:
-#line 96 "cmdparser.y" /* yacc.c:1646  */
+#line 96 "cmdparser.y" /* yacc.c:1651  */
     {
 		CmdSimple* cmd = (yyvsp[-2].simple);	
 		
@@ -1344,60 +1345,60 @@ yyreduce:
 
 		(yyval.simple)=cmd;
 	}
-#line 1348 "cmdparser.c" /* yacc.c:1646  */
+#line 1349 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 10:
-#line 107 "cmdparser.y" /* yacc.c:1646  */
+#line 107 "cmdparser.y" /* yacc.c:1651  */
     {
 		cmd_add_IOs(& (yyvsp[-2].io), &(yyvsp[0].io));
 		(yyval.simple)=cmd_alloc_simple((yyvsp[-1].sval),(yyvsp[0].io));
 	}
-#line 1357 "cmdparser.c" /* yacc.c:1646  */
+#line 1358 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 11:
-#line 114 "cmdparser.y" /* yacc.c:1646  */
+#line 114 "cmdparser.y" /* yacc.c:1651  */
     {
 		free((yyvsp[-2].io).in);
 		(yyvsp[-2].io).in=(yyvsp[0].sval);
 		(yyval.io)=(yyvsp[-2].io);
 	}
-#line 1367 "cmdparser.c" /* yacc.c:1646  */
+#line 1368 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 12:
-#line 120 "cmdparser.y" /* yacc.c:1646  */
+#line 120 "cmdparser.y" /* yacc.c:1651  */
     {
 		free((yyvsp[-2].io).out);
 		(yyvsp[-2].io).out=(yyvsp[0].sval);
 		(yyvsp[-2].io).app=false;
 		(yyval.io)=(yyvsp[-2].io);
 	}
-#line 1378 "cmdparser.c" /* yacc.c:1646  */
+#line 1379 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 13:
-#line 127 "cmdparser.y" /* yacc.c:1646  */
+#line 127 "cmdparser.y" /* yacc.c:1651  */
     {
 		free((yyvsp[-2].io).out);
 		(yyvsp[-2].io).out=(yyvsp[0].sval);
 		(yyvsp[-2].io).app=true;
 		(yyval.io)=(yyvsp[-2].io);	
 	}
-#line 1389 "cmdparser.c" /* yacc.c:1646  */
+#line 1390 "cmdparser.c" /* yacc.c:1651  */
     break;
 
   case 14:
-#line 134 "cmdparser.y" /* yacc.c:1646  */
+#line 134 "cmdparser.y" /* yacc.c:1651  */
     {
 		(yyval.io) = cmd_gen_IO();
 	}
-#line 1397 "cmdparser.c" /* yacc.c:1646  */
+#line 1398 "cmdparser.c" /* yacc.c:1651  */
     break;
 
 
-#line 1401 "cmdparser.c" /* yacc.c:1646  */
+#line 1402 "cmdparser.c" /* yacc.c:1651  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1625,7 +1626,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 138 "cmdparser.y" /* yacc.c:1906  */
+#line 138 "cmdparser.y" /* yacc.c:1910  */
 
 
 int yyerror(void*  scanner,Cmds** cmds,char** err_msg, const char *msg)

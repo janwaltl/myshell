@@ -1,4 +1,4 @@
-CC = clang
+CC = gcc
 CFLAGS = -g -Wall -Wextra -Wswitch-enum -Wwrite-strings -pedantic 
 
 TARGET = myshell
