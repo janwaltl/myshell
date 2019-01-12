@@ -71,7 +71,7 @@ run_myshell(int argc, char **argv) {
 	char *c_arg = parse_args(argc, argv);
 	if (c_arg != NULL) /* -c arg present */ {
 		return run_cmd(c_arg);
-	} else if (argc == 1) {
+	} else if (argc == 2) {
 		return run_script(argv[1]);
 	}
 	return run_prompt();
