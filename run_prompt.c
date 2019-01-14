@@ -119,7 +119,7 @@ run_prompt() {
 		Cmds *cmds = parse_line(line, &err_msg);
 		free(line);
 		if (!cmds) {
-			dprintf(STDERR_FILENO, "error: %s\n", err_msg);
+			dprintf(STDERR_FILENO, "error:1: %s\n", err_msg);
 			free(err_msg);
 			exval = 2;
 		} else {
