@@ -95,7 +95,6 @@ read_one_line(int fd, line_buffer *buffer, char **line) {
 #define LINE_BUFF_BLOCK_SIZE 8192
 		char block[LINE_BUFF_BLOCK_SIZE];
 		int num_read = read(fd, block, LINE_BUFF_BLOCK_SIZE);
-		printf("read %d\n", num_read);
 		if (num_read == -1)
 			err(1, "Cannot read into line_buffer(read),file desc=%d", fd);
 		else if (num_read == 0)

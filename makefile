@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Wswitch-enum -Wwrite-strings -pedantic 
 
-TARGET = myshell
+TARGET = mysh
 SOURCES = cmdexecution.c cmdhiearchy.c cmdlexer.c cmdparser.c cmdparsing.c \
 		  main.c myshell.c run_prompt.c run_script.c signals.c
 OBJECTS = $(SOURCES:.c=.o)

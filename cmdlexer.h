@@ -2,9 +2,9 @@
 #define yyHEADER_H 1
 #define yyIN_HEADER 1
 
-#line 5 "cmdlexer.h"
+#line 6 "cmdlexer.h"
 
-#line 7 "cmdlexer.h"
+#line 8 "cmdlexer.h"
 
 #define  YY_INT_ALIGNED short int
 
@@ -505,6 +505,6 @@ extern int yylex \
 #line 35 "cmdlexer.l"
 
 
-#line 508 "cmdlexer.h"
+#line 509 "cmdlexer.h"
 #undef yyIN_HEADER
 #endif /* yyHEADER_H */
