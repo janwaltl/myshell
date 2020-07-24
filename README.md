@@ -1,2 +1,2 @@
 # myshell
-Small shell-like program for an university class.
+Small shell-like program for a university class, [link](https://devnull-cz.github.io/unix-linux-prog-in-c/).
